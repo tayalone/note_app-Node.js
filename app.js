@@ -24,7 +24,8 @@ if (cmd === 'add') {
 }
 
 else if (cmd === 'list') {
-    notes.getAll()
+   const allNotes = notes.getAll()
+   allNotes.map( note => notes.logNote(note) )
 }
 
 else if (cmd == 'read') {

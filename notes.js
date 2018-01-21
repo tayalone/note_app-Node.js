@@ -35,7 +35,7 @@ const addNotes = (title, body) => {
     
 }
 const getAll = () => {
-    console.log("Get all Notes")
+    return fetchNotes()
 }
 const raedNotes = (title) => {
     let notes = fetchNotes()
