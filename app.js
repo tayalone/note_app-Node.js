@@ -13,7 +13,15 @@ const cmd =  argv._[0]
 
 
 if (cmd === 'add') {
-    notes.addNotes(argv.title, argv.body)
+   const note = notes.addNotes(argv.title, argv.body)
+   if (note) {
+       console.log ("Note is created")
+       console.log("-------------------")
+       console.log(`title: ${note.title} body: ${note.body}`)
+   } 
+   else {
+    console.log ("Note is not created")
+   }
 }
 
 else if (cmd === 'list') {
@@ -24,7 +32,9 @@ else if (cmd == 'read') {
     notes.raedNotes(argv.title)
 }
 else if (cmd == 'remove') {
-    notes.removeNotes(argv.title)
+    const result = notes.removeNotes(argv.title)
+    const mssg = result ? 'Remove Complete' : "Don't Remove Anything"
+    console.log(mssg)
 } 
 else {
     console.log('Wrong Command')
