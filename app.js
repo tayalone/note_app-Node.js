@@ -16,8 +16,7 @@ if (cmd === 'add') {
    const note = notes.addNotes(argv.title, argv.body)
    if (note) {
        console.log ("Note is created")
-       console.log("-------------------")
-       console.log(`title: ${note.title} body: ${note.body}`)
+       notes.logNote(note)
    } 
    else {
     console.log ("Note is not created")
@@ -29,7 +28,13 @@ else if (cmd === 'list') {
 }
 
 else if (cmd == 'read') {
-    notes.raedNotes(argv.title)
+    const note = notes.raedNotes(argv.title)
+    if (note) {
+        console.log('I Found It')
+         notes.logNote(note[0])
+    }else {
+        console.log ("can't not Find this title")
+    }
 }
 else if (cmd == 'remove') {
     const result = notes.removeNotes(argv.title)
