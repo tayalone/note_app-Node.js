@@ -2,17 +2,10 @@ console.log(`Starting app.js`)
 
 const fs = require('fs')
 const os = require('os')
+const notes = require('./notes')
 
-let user = os.userInfo()
+const res = notes.add(1, 2)
+console.log(res)
 
-fs.appendFile('greetings.txt', `Hello ${user.username} !`)
-
-// //Option one
-// fs.appendFile('greetings.txt', 'hello world!!',  (err) =>  {
-//     if (err) {
-//         console.log('Unable to write to file')
-//     }
-// })
-
-// //Option two
-// fs.appendFileSync('greetings.txt', 'Hello world!')
+// let user = os.userInfo()
+// fs.appendFile('greetings.txt', `Hello ${user.username}! you are ${notes.age}`)
